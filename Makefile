@@ -2,7 +2,7 @@
 
 .PHONY: kernel clean
 
-ROOT_DIR := ..
+ROOT_DIR := .
 
 ASMS := $(wildcard ${ROOT_DIR}/src/*/*.s)
 SOURCES := $(wildcard ${ROOT_DIR}/src/*/*.c)
@@ -56,3 +56,6 @@ run: grub
 clean:
 	@echo "Cleaning"
 	rm -rvf *.o ${ASM_OBJECTS} ${SOURCE_OBJECTS}
+	rm -rf ${ROOT_DIR}/isodir
+	rm -f ${ROOT_DIR}/funix.bin
+	rm -f ${ROOT_DIR}/funix.iso
