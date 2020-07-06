@@ -24,4 +24,8 @@ STATIC_ASSERT(sizeof(unsigned long) == EXPECTED_LONG_SIZE);
 STATIC_ASSERT(sizeof(long long) == EXPECTED_LONG_LONG_SIZE);
 STATIC_ASSERT(sizeof(unsigned long long) == EXPECTED_LONG_LONG_SIZE);
 
+#if !defined(__i386__)
+#error "Error: Kernel only supports x86 32 bit systems"
+#endif
+
 #endif
