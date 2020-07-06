@@ -1,15 +1,16 @@
 #include "funix/util/vga.h"
 #include "funix/util/compiler_check.h"
+#include "funix/util/static_assert.h"
 
-// const static char TERMINAL_ROWS = 25;
+//static const char TERMINAL_ROWS = 25;
 static const char TERMINAL_COLS = 80;
 static const short TERMINAL_BUFFER_LENGTH = 2000; /* 80 * 25 */
 static const char DEFAULT_VGA_COLORS = 0x0f; /* white on black */
 
 static volatile short* TERMINAL_BUFFER = (short*) 0xB8000; /* location in mem where vga char is */
 
-static volatile char row;
-static volatile char col;
+static volatile char row = 0;
+static volatile char col = 0;
 
 /*
  * Converts a character to a vga character, adding color info
